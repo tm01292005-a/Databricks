@@ -4,7 +4,7 @@ import logging
 import sys
 
 # Expectations定義をインポート（ルート直下のexpectationsフォルダから）
-sys.path.append('/Workspace/Users/kuroironekko@gmail.com/test_csv_item/expectations')
+sys.path.append('/Workspace/Users/kuroironekko@gmail.com/Databricks/expectations')
 from bronze_csv_quality import get_bronze_csv_expectations
 
 # ロガーの設定

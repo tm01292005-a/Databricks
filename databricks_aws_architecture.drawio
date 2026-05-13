@@ -13,7 +13,7 @@
           <mxGeometry x="120" y="120" width="1300" height="700" as="geometry"/>
         </mxCell>
 
-        <mxCell id="vpc" value="Databricks VPC" style="swimlane;html=1;rounded=1;fillColor=#f5f5f5;" vertex="1" parent="acc1">
+        <mxCell id="vpc" value="Compute Plane VPC (Customer-managed)" style="swimlane;html=1;rounded=1;fillColor=#f5f5f5;" vertex="1" parent="acc1">
           <mxGeometry x="20" y="40" width="1240" height="620" as="geometry"/>
         </mxCell>
 
@@ -93,7 +93,7 @@
           <mxGeometry x="1120" y="500" width="100" height="60" as="geometry"/>
         </mxCell>
 
-        <mxCell id="acc2" value="External Data Source AWS Account" style="swimlane;html=1;rounded=1;" vertex="1" parent="1">
+        <mxCell id="acc2" value="External Data Source AWS Account\n(別アカウント)\n- データ保管: RDS / S3 / Kinesis\n- 既存 DirectConnect 経由で接続" style="swimlane;html=1;rounded=1;" vertex="1" parent="1">
           <mxGeometry x="1480" y="220" width="340" height="340" as="geometry"/>
         </mxCell>
 
@@ -138,6 +138,14 @@
         </mxCell>
 
         <mxCell id="e8" edge="1" parent="1" source="dx" target="datavpc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_peering" value="VPC Peering" edge="1" parent="1" source="cp" target="vpc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2b6cb0;dashed=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_dx_vpc" value="DirectConnect (既構築)" edge="1" parent="1" source="datavpc" target="vpc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6b46c1;dashed=1;">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 

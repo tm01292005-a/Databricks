@@ -1,0 +1,147 @@
+<mxfile host="app.diagrams.net" modified="2026-05-13T00:00:00.000Z" agent="ChatGPT" version="24.7.17">
+  <diagram id="aws-db" name="Databricks AWS">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="region" value="ap-northeast-1" style="swimlane;rounded=0;html=1;fillColor=#f5f5f5;strokeColor=#b7b7b7;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="1700" height="980" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="vpc" value="VPC (databricks-vpc)" style="swimlane;rounded=0;html=1;fillColor=#ffffff;strokeColor=#70ad47;fontStyle=1;" vertex="1" parent="region">
+          <mxGeometry x="20" y="40" width="1620" height="900" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="az1" value="Availability Zone 1" style="swimlane;rounded=0;html=1;fillColor=#ffffff;dashed=1;strokeColor=#999999;" vertex="1" parent="vpc">
+          <mxGeometry x="20" y="40" width="1450" height="360" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="az2" value="Availability Zone 2" style="swimlane;rounded=0;html=1;fillColor=#ffffff;dashed=1;strokeColor=#999999;" vertex="1" parent="vpc">
+          <mxGeometry x="20" y="430" width="1450" height="360" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pub1" value="Endpoint Subnet" style="swimlane;rounded=0;html=1;fillColor=#e2f0d9;strokeColor=#70ad47;fontStyle=1;" vertex="1" parent="az1">
+          <mxGeometry x="40" y="50" width="300" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pub2" value="Public Subnet" style="swimlane;rounded=0;html=1;fillColor=#e2f0d9;strokeColor=#70ad47;fontStyle=1;" vertex="1" parent="az2">
+          <mxGeometry x="40" y="50" width="300" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="priv1" value="Private Compute Subnet" style="swimlane;rounded=0;html=1;fillColor=#ddebf7;strokeColor=#5b9bd5;fontStyle=1;" vertex="1" parent="az1">
+          <mxGeometry x="420" y="50" width="360" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="priv2" value="Private Compute Subnet" style="swimlane;rounded=0;html=1;fillColor=#ddebf7;strokeColor=#5b9bd5;fontStyle=1;" vertex="1" parent="az2">
+          <mxGeometry x="420" y="50" width="360" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="storage1" value="Storage / Unity Catalog" style="swimlane;rounded=0;html=1;fillColor=#ddebf7;strokeColor=#5b9bd5;fontStyle=1;" vertex="1" parent="az1">
+          <mxGeometry x="860" y="50" width="420" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="storage2" value="Network / Security" style="swimlane;rounded=0;html=1;fillColor=#ddebf7;strokeColor=#5b9bd5;fontStyle=1;" vertex="1" parent="az2">
+          <mxGeometry x="860" y="50" width="420" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cp" value="Databricks Control Plane" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="vpc">
+          <mxGeometry x="520" y="810" width="240" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="vpce1" value="Workspace PrivateLink Endpoint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="pub1">
+          <mxGeometry x="40" y="60" width="220" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="vpce2" value="SCC Relay Endpoint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="pub1">
+          <mxGeometry x="40" y="130" width="220" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="nat" value="NAT Gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="pub2">
+          <mxGeometry x="70" y="80" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cluster1" value="Databricks Cluster Nodes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe699;strokeColor=#bf9000;" vertex="1" parent="priv1">
+          <mxGeometry x="70" y="80" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cluster2" value="Databricks Cluster Nodes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe699;strokeColor=#bf9000;" vertex="1" parent="priv2">
+          <mxGeometry x="70" y="80" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s3root" value="S3 Root Bucket" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#6aa84f;" vertex="1" parent="storage1">
+          <mxGeometry x="30" y="40" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s3data" value="S3 Data Buckets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#6aa84f;" vertex="1" parent="storage1">
+          <mxGeometry x="220" y="40" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="iam" value="Cross Account IAM Role" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ead1dc;strokeColor=#a64d79;" vertex="1" parent="storage1">
+          <mxGeometry x="120" y="120" width="180" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sg" value="Workspace Security Group" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#3d85c6;" vertex="1" parent="storage2">
+          <mxGeometry x="40" y="40" width="180" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="nacl" value="Subnet NACL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#3d85c6;" vertex="1" parent="storage2">
+          <mxGeometry x="240" y="40" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="route" value="Route Tables&#10;0.0.0.0/0 → NAT&#10;S3 → Gateway Endpoint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="storage2">
+          <mxGeometry x="70" y="120" width="280" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="internet" value="Internet" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" vertex="1" parent="vpc">
+          <mxGeometry x="1490" y="140" width="90" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="dx" value="Direct Connect" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="vpc">
+          <mxGeometry x="1490" y="420" width="100" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="extacc" value="External Data Source AWS Account&#10;RDS / S3 / Kinesis" style="swimlane;rounded=0;html=1;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="vpc">
+          <mxGeometry x="1310" y="520" width="250" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="datasrc" value="Data Source VPC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ddebf7;strokeColor=#5b9bd5;" vertex="1" parent="extacc">
+          <mxGeometry x="40" y="50" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" edge="1" parent="1" source="cp" target="vpce1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" edge="1" parent="1" source="cp" target="vpce2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" edge="1" parent="1" source="cluster1" target="nat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" edge="1" parent="1" source="cluster2" target="nat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5" edge="1" parent="1" source="nat" target="internet">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6" edge="1" parent="1" source="cluster1" target="dx">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e7" edge="1" parent="1" source="cluster2" target="dx">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e8" edge="1" parent="1" source="dx" target="datasrc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

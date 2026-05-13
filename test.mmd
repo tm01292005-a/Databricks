@@ -1,0 +1,100 @@
+flowchart TB
+
+  CP["Databricks Control Plane"]
+
+  subgraph ACC1["Customer Managed AWS Account"]
+
+    subgraph VPC["Databricks VPC"]
+
+      subgraph EP_SUBNET["Endpoint Subnet"]
+        VPCE_WS["Workspace PrivateLink Endpoint"]
+        VPCE_SCC["SCC Relay PrivateLink Endpoint"]
+        VPCE_STS["STS Interface Endpoint"]
+        VPCE_KIN["Kinesis Interface Endpoint"]
+        EP_SG["Endpoint Security Group"]
+      end
+
+      subgraph PUB["Public Subnet"]
+        NAT["NAT Gateway"]
+        IGW["Internet Gateway"]
+      end
+
+      subgraph PRIV_A["Private Compute Subnet AZ-a"]
+        CL_A["Databricks Cluster Nodes"]
+      end
+
+      subgraph PRIV_B["Private Compute Subnet AZ-b"]
+        CL_B["Databricks Cluster Nodes"]
+      end
+
+      RT["Route Tables"]
+      SG["Workspace Security Group"]
+      NACL["Subnet NACL"]
+
+      S3GW["S3 Gateway VPC Endpoint"]
+
+      FIREWALL["Optional Egress Firewall"]
+
+      ROOT_BUCKET["S3 Root Bucket"]
+      UC_BUCKET["S3 Data Buckets"]
+
+      UC_ROLE["Cross Account IAM Role"]
+
+      UC_CRED["Unity Catalog Storage Credential"]
+
+      EXT_LOC["Unity Catalog External Location"]
+
+    end
+
+  end
+
+  subgraph ACC2["External Data Source AWS Account"]
+
+    DX["Direct Connect"]
+
+    DATA_VPC["Data Source VPC"]
+
+    DATA_SYS["RDS S3 Kinesis Other Systems"]
+
+  end
+
+  CP --> VPCE_WS
+  CP --> VPCE_SCC
+
+  CL_A --> VPCE_STS
+  CL_B --> VPCE_STS
+
+  CL_A --> VPCE_KIN
+  CL_B --> VPCE_KIN
+
+  CL_A --> SG
+  CL_B --> SG
+
+  SG --> RT
+
+  RT --> S3GW
+  RT --> NAT
+
+  NAT --> IGW
+
+  NAT --> FIREWALL
+
+  NACL --> PRIV_A
+  NACL --> PRIV_B
+
+  EP_SG --> VPCE_WS
+  EP_SG --> VPCE_SCC
+  EP_SG --> VPCE_STS
+  EP_SG --> VPCE_KIN
+
+  UC_ROLE --> UC_CRED
+  UC_CRED --> EXT_LOC
+
+  UC_ROLE --> ROOT_BUCKET
+  UC_ROLE --> UC_BUCKET
+
+  CL_A --> DX
+  CL_B --> DX
+
+  DX --> DATA_VPC
+  DATA_VPC --> DATA_SYS

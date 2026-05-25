@@ -1,0 +1,47 @@
+■パターン1: VPC /20 の場合
+VPC CIDR：10.200.0.0/20
+IP総数: 4096 IP
+サブネット構成：
+用途	AZ	CIDR	使用可能IP(概算)
+Private-A	ap-northeast-1a	10.200.0.0/22	1019
+Private-C	ap-northeast-1c	10.200.4.0/22	1019
+Public-A	ap-northeast-1a	10.200.8.0/26	59
+Public-C	ap-northeast-1c	10.200.8.64/26	59
+Firewall-A	ap-northeast-1a	10.200.9.0/26	59
+Firewall-C	ap-northeast-1c	10.200.9.64/26	59
+未使用領域: 10.200.10.0 ～ 10.200.15.255
+
+起動可能ノード数: 1019 × 2 = 2038
+
+
+■パターン2: VPC /19 の場合
+VPC CIDR: 10.200.0.0/19
+IP総数: 8192 IP
+サブネット構成（推奨）
+用途	AZ	CIDR	使用可能IP(概算)
+Private-A	ap-northeast-1a	10.200.0.0/21	2043
+Private-C	ap-northeast-1c	10.200.8.0/21	2043
+Public-A	ap-northeast-1a	10.200.16.0/26	59
+Public-C	ap-northeast-1c	10.200.16.64/26	59
+Firewall-A	ap-northeast-1a	10.200.17.0/26	59
+Firewall-C	ap-northeast-1c	10.200.17.64/26	59
+未使用領域: 10.200.18.0 ～ 10.200.31.255
+
+起動可能ノード数: 2043 × 2 = 4086
+
+
+■比較まとめ
+項目	/20	/19
+VPC IP数	4096	8192
+Private Subnet	/22 ×2	/21 ×2
+理論ノード	約2000	約4000
+実運用推奨	300～500	1000～2000
+小〜中規模DWH	◎	◎
+全社分析基盤	△	◎
+ML/AI拡張	△	◎
+将来余裕	普通	非常に高い
+CIDR節約	◎	△
+
+推奨順位
+第一候補	/19
+第二候補	/20

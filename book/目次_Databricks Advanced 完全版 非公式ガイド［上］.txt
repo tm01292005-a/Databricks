@@ -1,0 +1,47 @@
+■ゼロから触ってわかった！Databricks Advanced 完全版 非公式ガイド［上］ ― 開発・デプロイ・品質保証編 ―
+
+[目次]
+第1章　Databricks Advanced Overview
+1.1 Databricksの進化と試験の位置づけ
+1.2 Databricks Lakehouseの全体像
+1.3 本書の目的とLab対応マップ
+1.4 上級者が押さえるべき運用視点
+1.5 試験知識の実務適用法
+
+第2章　DABプロジェクトと環境設計
+2.1 DABの構成とGit連携
+2.2 bundle.yml設計と環境変数
+2.3 GitHub Actionsによる自動デプロイ
+2.4 Databricks CLI／REST運用連携
+2.5 Repair・再デプロイ手順
+2.6 CI/CD連携のベストプラクティス
+2.7 Databricks Asset Bundles実践テンプレート
+2.8 Multi-Environment Promotion設計
+
+第3章　ライブラリ管理と依存性最適化
+3.1 %pip／cluster／wheel比較
+3.2 wheel配布と再現性確保
+3.3 依存衝突のトラブルシュート
+3.4 DAB統合パターン
+3.5 ライブラリ管理のベストプラクティス
+3.6 Secretsによる機密管理
+3.7 Serverlessにおけるライブラリ制約と対策
+
+第4章　テスト駆動開発と品質保証
+4.1 Pandas/Python UDF設計
+4.2 Arrow変換とSchema不一致対策
+4.3 pytest＋assertDataFrameEqual
+4.4 非決定的行順の対策
+4.5 FixtureとSparkSession設計
+4.6 CI/CD統合テストテンプレート
+4.7 Data Contractテスト設計
+
+第5章　Lakeflowパイプラインと制御構文の実践
+5.1 Lakeflowの構成原則
+5.2 Bronze/Silver/Gold設計
+5.3 if/foreach制御構文
+5.4 pipeline_settings設計
+5.5 Event Logの可視化活用
+5.6 retry_policyとidempotency設計
+5.7 Declarative Pipeline設計戦略
+5.8 Streaming TableとMaterialized View比較

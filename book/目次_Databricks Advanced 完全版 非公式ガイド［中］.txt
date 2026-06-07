@@ -1,0 +1,49 @@
+■ゼロから触ってわかった！Databricks Advanced 完全版 非公式ガイド［中］ ― 取込・変換・監視・コスト最適化 ―
+
+[目次]
+第6章Auto Loaderによるデータ取り込み戦略
+6.1 Auto Loader概要
+6.2 CSV/JSON/AVRO対応
+6.3 Append-only Pipeline設計
+6.4 file notificationモード
+6.5 schemaLocation最適化
+6.6 Lakeflow統合実装
+6.7 CDCパイプライン実装（AUTO CDC）
+6.8 Managed File Events設計
+
+第7章データ品質・変換とクレンジング設計
+7.1 Spark SQL最適化
+7.2 Lakeflow Expectations構成
+7.3 Quarantine再処理フロー
+7.4 再違反防止設計
+7.5 transform＋品質検証自動化
+7.6 監査ログと合格率分析
+
+第8章データ共有とフェデレーション設計
+8.1 Delta Sharing基礎
+8.2 D2D／D2O比較
+8.3 外部共有のセキュリティ設計
+8.4 Lakehouse Federation構成
+8.5 UCガバナンス統合
+8.6 Cross-cloud事例
+8.7 Iceberg連携とOpen Table戦略
+8.8 Federation vs Replication比較
+
+第9章システム監視とアラート自動化
+9.1 System Tables監視
+9.2 クエリ性能×コスト分析
+9.3 Query Profiler解析
+9.4 REST／CLI監視自動化
+9.5 Event Log活用
+9.6 SQL Alert構築
+9.7 Workflows通知設計
+9.8 FinOps実践（System Tables活用）
+9.9 SLI／SLO設計と監視指標
+
+第10章コストとパフォーマンス最適化
+10.1 Managed Tables最適運用
+10.2 Partition／ZORDER／Liquid比較
+10.3 Deletion Vectors性能改善
+10.4 Data Skipping／Pruning
+10.5 CDFによるレイテンシ改善
+10.6 Serverless時代の最適化戦略

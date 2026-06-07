@@ -1,0 +1,99 @@
+■ゼロから触ってわかった！ Databricks 本番導入完全ガイド（非公式） ― Serverless・Lakeflow・AI時代のデータ基盤実践 ―
+[目次]
+第1章 DATABRICKS の現在地
+1.1 Databricksは何が変わったのか
+1.2 Serverless時代のDatabricks
+1.3 なぜ企業はDatabricksを選ぶのか
+1.4 AI時代のDatabricks
+
+第2章 DATABRICKS 全体アーキテクチャ
+2.1 Workspace構成の基本
+2.2 Unity Catalog中心設計
+2.3 ComputeとSQL Warehouse
+2.4 Lakeflowの全体像
+2.5 Open Table Format戦略
+
+第3章 最初に決める設計
+3.1 ワークスペース分離戦略
+3.2 カタログ設計
+3.3 ネットワークと接続
+3.4 権限設計の考え方
+
+第4章 データ取込の実務
+4.1 Batch vs Streaming
+4.2 Auto Loader実践
+4.3 CDCとCDF
+4.4 Incremental設計
+
+第5章 LAKEFLOW 時代のパイプライン設計
+5.1 宣言型パイプラインとは
+5.2 Streaming TableとMaterialized View
+5.3 品質管理設計
+5.4 再処理と障害復旧
+5.5 オーケストレーション
+
+第6章 LAKEFLOW 時代に最低限理解すべき DELTA の実務知識
+6.1 Delta Lakeの本質
+6.2 MERGEと更新戦略
+6.3 Time Travelと履歴管理
+6.4 Schema Evolution
+6.5 小さいファイル問題~ Small Filesと性能劣化
+6.6 Liquid Clustering
+
+第7章 SQL 分析基盤
+7.1 SQL Warehouseの現在地
+7.2 BI接続設計
+7.3 Semantic Layer
+7.4 SQL性能改善
+7.5 Genie実践
+
+第8章 オープンデータ戦略
+8.1 Delta Sharing
+8.2 Iceberg連携
+8.3 UniForm
+8.4 Federation vs Replication
+
+第9章UNITY CATALOG 実践
+9.1 権限モデル理解
+9.2 Storage Credential
+9.3 External Location
+9.4 Managed Storage
+9.5 Data Lineage活用
+
+第10章セキュリティ設計
+10.1 Identityと認証
+10.2 Secrets管理
+10.3 PII保護
+10.4 コンプライアンス対応
+
+第11章 DATA GOVERNANCE
+11.1 メタデータ管理
+11.2 品質管理
+11.3 データFreshness
+11.4 AI時代のガバナンス
+
+第12章監視と OBSERVABILITY
+12.1 System Tables
+12.2 パイプライン監視
+12.3 SLI/SLO設計
+12.4 障害分析
+
+第13章 FINOPS とコスト最適化
+13.1 Serverless時代のコスト
+13.2 SQL Warehouse最適化
+13.3 Photon活用
+13.4 Billing分析
+
+第14章 AI と MOSAIC AI の現在地
+14.1 Mosaic AI概要
+14.2 Genie CodeとAI開発支援
+14.3 Model Serving
+14.4 AgentとEvaluation
+14.5 RAGとEnterprise AI基盤
+
+第15章 DATABRICKS の未来
+15.1 AI時代のデータ活用
+15.2 Open Table時代のデータ基盤
+15.3 マルチプラットフォーム時代の選択
+15.4 実務アーキテクトの判断軸
+

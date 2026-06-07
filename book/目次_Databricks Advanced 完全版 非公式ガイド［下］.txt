@@ -1,0 +1,56 @@
+■ゼロから触ってわかった！Databricks Advanced 完全版 非公式ガイド［下］― セキュリティ・ガバナンス・Serverless運用・AI時代の最適化戦略 ―
+
+[目次]
+第11章 セキュリティとコンプライアンス設計
+11.1 Databricksセキュリティ層全体像
+11.2 ACL権限管理
+11.3 Row Filter／Column Mask
+11.4 PII匿名化設計
+11.5 データ保持とパージ設計
+11.6 コンプライアンス対応（GDPR等）
+11.7 監査ログとアクセス履歴
+11.8 Secrets／Key Vault連携
+11.9 Serverlessセキュリティ設計
+
+第12章 データガバナンスとメタデー夕管理
+12.1 UCメタデータ構造
+12.2 説明・タグ付与・オーナー管理
+12.3 権限継承モデル
+12.4 メタデータ探索と検索
+12.5 Audit／Access History分析
+12.6 メタデータAPI連携
+12.7 品質維持・命名規則設計
+12.8 Data Lineage実践活用法
+
+第13章 デプロイとロールバック設計
+13.1 Job／Workflow構成
+13.2 Parameter Override／Repair
+13.3 Event Logでのデバッグ
+13.4 Asset Bundlesによる自動化
+13.5 GitベースCI/CD設計
+13.6 ロールバック手順
+13.7 QA→本番承認フロー
+13.8 トラブル修復事例
+
+第14章 障害復旧・トラブルシュート実践
+14.1 Spark UI／ログ解析
+14.2 Lakeflow障害トレース
+14.3 depends_onデッドロック事例
+14.4 Cluster構成不備検証
+14.5 Checkpoint破損修復
+14.6 Streaming再起動／重複防止
+14.7 SLA違反検知／再実行設計
+14.8 Query Skew・Spill対策
+14.9 コスト障害（爆死）トラブルシュート
+
+第15章 ADVANCED アーキテクチャ最適化戦略
+15.1 Star／Snowflake比較
+15.2 Partition／ZORDER／Liquid比較
+15.3 Fact／Dimension分割設計
+15.4 BI最適化とSQL Warehouse連携
+15.5 Multi-region／Multi-catalog戦略
+15.6 GenAI統合（Mosaic／Feature Store）
+15.7 Lakehouseガバナンス統合
+15.8 Advanced設計10原則
+15.9 AI時代のLakehouseアーキテクチャ
+15.10 Serverless最適アーキテクチャ
